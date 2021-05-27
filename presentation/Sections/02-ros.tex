@@ -21,10 +21,11 @@
 %*----------- SLIDE -------------------------------------------------------------
 \begin{frame}[t]{Robôs que utilizam ROS} 
   \centering
-  \includegraphics[width=.42\linewidth]{aplicacoes.jpeg}
+
+  \vspace{1.5cm}
+  \includegraphics[width=\linewidth]{aplicacoes.jpeg}
   
   \href{https://robots.ros.org/}{https://robots.ros.org/}
-
 
 \end{frame}
 
@@ -36,7 +37,7 @@
     \includegraphics[width=\textwidth]{ros_robots_turtle.jpg}
     
     \column{.4\textwidth}
-    \begin{itemize}
+    \begin{itemize}[<+->]
       \item ROS é de uso geral, você pode utilizá-lo na aplicação que desejar;
       \item Possui uma gama de ferramentas úteis para simulação e visualização;
       \item Possui pacotes para tudo do que se possa imaginar;
@@ -57,7 +58,7 @@
     \column{.06\textwidth}
     \includegraphics[width=\linewidth]{gazebo_logo.png}
 
-    % \column[0.1cm]{.8\textwidth}
+    \column[0.1cm]{.8\textwidth}
     
     Gazebo é um simulador 3D robusto e de código aberto, muito utilizado para simulação de robôs, tornando possível o teste de seus controles e algoritmos em ambientes próximos do real.
   \end{columns}
@@ -78,5 +79,62 @@
     \item \textbf{Rosout:} Equivalente do ROS ao stdout
     \item \textbf{Roscore:} Master + rosout + parameter server 
   \end{itemize}
+
+\end{frame}
+
+
+%*----------- SLIDE -------------------------------------------------------------
+\begin{frame}[t]{Nós e Tópicos ROS}
+
+  \begin{columns}
+    \column{0.44\textwidth}
+    \includegraphics[width=\textwidth]{turtle_key.png} 
+    
+    \column[0.4\textwidth]{0.6\textwidth}
+
+    \$ roscore
+    \\\$ rosrun turtlesim turtlesim\_node
+    \\\$ rosrun turtlesim turtle\_teleop\_key
+    \\\$ rosrun rqt\_graph rqt\_graph
+    
+    \vspace{.4cm}
+    \hspace*{-.5cm}
+    \includegraphics[width=1.06\textwidth]{rqt_graph_turtle_key2.png}
+  \end{columns}
+
+\end{frame}
+
+
+%*----------- SLIDE -------------------------------------------------------------
+\begin{frame}[t]{Nós e Tópicos ROS}
+  \centering
+  \includegraphics[width=.85\textwidth]{rqt_graph_navigation.jpeg}
+\end{frame}
+
+%*----------- SLIDE -------------------------------------------------------------
+\begin{frame}[t]{Tópicos e Mensagens ROS}
+
+  \begin{columns}
+    \hspace{.4cm}
+    \column{0.44\textwidth}
+    \includegraphics[width=.9\textwidth]{turtlesim_circle.jpeg} 
+    
+    \column[0.36\textwidth]{0.64\textwidth}
+
+    \$ rosnode list
+    \\\$ rostopic list
+    \\\$ rostopic info /turtle1/cmd\_vel
+    \\\$ rosmsg show geometry\_msgs/Twist
+    \\\$ rostopic pub /turtle1/cmd\_vel geometry\_msgs/Twist 
+      \\ \hspace{0.3cm} "linear:
+      \\ \hspace{0.6cm}  x: 1.0
+      \\ \hspace{0.6cm}  y: 0.0
+      \\ \hspace{0.6cm}  z: 0.0
+      \\ \hspace{0.3cm} angular:
+      \\ \hspace{0.6cm}  x: 0.0
+      \\ \hspace{0.6cm}  y: 0.0
+      \\ \hspace{0.6cm}  z: 0.5" --rate 10
+
+  \end{columns}
 
 \end{frame}
